@@ -21,6 +21,38 @@ const linkList = [
     }
 ];
 
+// Create a function for the first condition
+
+const showingList = () => {
+    for (let i = 0; i < linkList.length; i ++) {
+        let socialList = `Title: ${linkList[i].title}
+URL: ${linkList[i].url}
+Author: ${linkList[i].author}`;
+
+        alert(socialList);
+    }
+}
+
+// Fuction for the users choose link
+
+const usersLinkChoice = () => {
+    const linkTitle = prompt("What is the title of your new link");
+    const linkUrl = prompt("What is your new URL");
+    const linkAuthor = prompt("Who is the author of your social link");
+    const socialLink = {
+        title: linkTitle,
+        url: linkUrl,
+        author: linkAuthor
+    };
+    linkList.push(socialLink);
+}
+
+const removeLink = () => {
+    let deleteExistingLink = Number(prompt(`Enter the link's index you want to delete (1 to ${linkList.length})`));
+    let deleteLink = linkList.splice(deleteExistingLink -=1, 1);
+    alert(`You have just remove ${deleteLink[0].title}`);
+}
+
 const menu = `1: Show links
 2: Add a link
 3: Remove a link
@@ -32,31 +64,15 @@ let menuList = Number(prompt(menu));
 while (menuList !== 0) {
     switch (menuList) {
         case 1:
-            for (let i = 0; i < linkList.length; i ++) {
-                let socialList = `Title: ${linkList[i].title}
-URL: ${linkList[i].url}
-Author: ${linkList[i].author}`;
-
-                alert(socialList);
-            }
+            showingList();
             break;
 
         case 2:
-            const linkTitle = prompt("What is the title of your new link");
-            const linkUrl = prompt("What is your new URL");
-            const linkAuthor = prompt("Who is the author of your social link");
-            const socialLink = {
-                title: linkTitle,
-                url: linkUrl,
-                author: linkAuthor
-            };
-            linkList.push(socialLink);
+            usersLinkChoice();
         break;
 
         case 3:
-            let deleteExistingLink = Number(prompt(`Enter the link's index you want to delete (1 to ${linkList.length})`));
-            let deleteLink = linkList.splice(deleteExistingLink--, 1);
-            alert(`You have just remove ${deleteLink[0].title}`);
+            removeLink();
         break;
 
         default:

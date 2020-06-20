@@ -36,9 +36,14 @@ Author: ${linkList[i].author}`;
 // Fuction for the users choose link
 
 const usersLinkChoice = () => {
-    const linkTitle = prompt("What is the title of your new link");
-    const linkUrl = prompt("What is your new URL");
-    const linkAuthor = prompt("Who is the author of your social link");
+    let linkTitle = prompt("What is the title of your new link");
+    let linkUrl = prompt("What is your new URL");
+    let linkAuthor = prompt("Who is the author of your social link");
+
+    if (!linkUrl.startsWith("http://") && !linkUrl.startsWith("https://")) {
+    linkUrl = `https://${linkUrl}`;
+    }
+
     const socialLink = {
         title: linkTitle,
         url: linkUrl,
@@ -50,7 +55,10 @@ const usersLinkChoice = () => {
 const removeLink = () => {
     let deleteExistingLink = Number(prompt(`Enter the link's index you want to delete (1 to ${linkList.length})`));
     let deleteLink = linkList.splice(deleteExistingLink -=1, 1);
-    alert(`You have just remove ${deleteLink[0].title}`);
+    alert(`You have just remove ${deleteLink[0].title}
+URL: ${linkList[0].url}
+Author: ${linkList[0].author}
+`);
 }
 
 const menu = `1: Show links

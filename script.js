@@ -61,7 +61,7 @@ Author: ${linkList[0].author}
 `);
 }
 
-const menu = `1: Show links
+let menu = `1: Show links
 2: Add a link
 3: Remove a link
 0: Quit
@@ -92,3 +92,4 @@ while (menuList !== 0) {
 
 }
 
+alert("Pleased to have you using my program")

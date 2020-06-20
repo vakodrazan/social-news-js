@@ -27,7 +27,7 @@ const menu = `1: Show links
 0: Quit
 `;
 
-const menuList = Number(prompt(menu));
+let menuList = Number(prompt(menu));
 
 while (menuList !== 0) {
     switch (menuList) {
@@ -54,7 +54,7 @@ Author: ${linkList[i].author}`;
         break;
 
         default:
-            alert('Please enter a correct choice. (1,2,3,4,5)');
+            alert('Please enter a correct choice. (0, 1, 2, 3)');
             break;
     }
     

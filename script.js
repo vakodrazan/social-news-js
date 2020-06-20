@@ -21,3 +21,44 @@ const linkList = [
     }
 ];
 
+const menu = `1: Show links
+2: Add a link
+3: Remove a link
+0: Quit
+`;
+
+const menuList = Number(prompt(menu));
+
+while (menuList !== 0) {
+    switch (menuList) {
+        case 1:
+            for (let i = 0; i < linkList.length; i ++) {
+                let socialList = `Title: ${linkList[i].title}
+URL: ${linkList[i].url}
+Author: ${linkList[i].author}`;
+
+                alert(socialList);
+            }
+            break;
+
+        case 2:
+            const linkTitle = prompt("What is the title of your new link");
+            const linkUrl = prompt("What is your new URL");
+            const linkAuthor = prompt("Who is the author of your social link");
+            const socialLink = {
+                title: linkTitle,
+                url: linkUrl,
+                author: linkAuthor
+            };
+            linkList.push(socialLink);
+        break;
+
+        default:
+            alert('Please enter a correct choice. (1,2,3,4,5)');
+            break;
+    }
+    
+    menuList = Number(prompt(menu));
+
+}
+

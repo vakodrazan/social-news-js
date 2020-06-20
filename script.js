@@ -53,11 +53,17 @@ Author: ${linkList[i].author}`;
             linkList.push(socialLink);
         break;
 
+        case 3:
+            let deleteExistingLink = Number(prompt(`Enter the link's index you want to delete (1 to ${linkList.length})`));
+            let deleteLink = linkList.splice(deleteExistingLink--, 1);
+            alert(`You have just remove ${deleteLink[0].title}`);
+        break;
+
         default:
             alert('Please enter a correct choice. (0, 1, 2, 3)');
             break;
     }
-    
+
     menuList = Number(prompt(menu));
 
 }

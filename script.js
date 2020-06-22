@@ -54,20 +54,22 @@ const usersLinkChoice = () => {
 
 const removeLink = () => {
     let deleteExistingLink = Number(prompt(`Enter the link's index you want to delete (1 to ${linkList.length})`));
-    let deleteLink = linkList.splice(deleteExistingLink -=1, 1);
+    let deleteLink = linkList.splice(deleteExistingLink --, 1);
     alert(`You have just remove ${deleteLink[0].title}
 URL: ${linkList[0].url}
 Author: ${linkList[0].author}
 `);
 }
 
-let menu = `1: Show links
+let menuChoice = `Choose an option:
+
+1: Show links
 2: Add a link
 3: Remove a link
 0: Quit
 `;
 
-let menuList = Number(prompt(menu));
+let menuList = Number(prompt(menuChoice));
 
 while (menuList !== 0) {
     switch (menuList) {
@@ -88,7 +90,7 @@ while (menuList !== 0) {
             break;
     }
 
-    menuList = Number(prompt(menu));
+    menuList = Number(prompt(menuChoice));
 
 }
 

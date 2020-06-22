@@ -54,10 +54,10 @@ const usersLinkChoice = () => {
 
 const removeLink = () => {
     let deleteExistingLink = Number(prompt(`Enter the link's index you want to delete (1 to ${linkList.length})`));
-    let deleteLink = linkList.splice(deleteExistingLink --, 1);
+    let deleteLink = linkList.splice(deleteExistingLink -=1, 1);
     alert(`You have just remove ${deleteLink[0].title}
-URL: ${linkList[0].url}
-Author: ${linkList[0].author}
+URL: ${deleteLink[0].url}
+Author: ${deleteLink[0].author}
 `);
 }
 
